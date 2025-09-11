@@ -14,7 +14,7 @@ consoleInput = "" #Start with blank to have a new console newCommand()
 itemDict = {}   #Create an empty dictionary
 
 def newCommand():
-    return input("\033[1;32;40mconsole@cashregister:$ \033[0m").strip()
+    return input("\033[1;32;40mconsolecash@terminal:$ \033[0m").strip()
 
 def exitCommand():
     print("Exiting...")
@@ -102,7 +102,7 @@ def helpCommand():
     'list'        : List all items
     'remove'      : Remove an item by name
     'remove -all' : Remove all items from the register
-
+    For more infomation about ConsoleCash, go to https://github.com/jammyjunior/ConsoleCash.
     """)
 
 def removeCommand():
@@ -119,10 +119,11 @@ def removeAllCommand():
     if removeAllConfirm in ("y", "yes"):
         itemDict.clear()
 
-    elif removeAllConfirm not in ("n", "no"):
-        print("Confirmation failed!")
+    elif removeAllConfirm in ("n", "no"):
+        print("Nothing was changed.")
     
     else:
+        print("Confirmation failed!")
         print("Nothing was changed.")
 
 while consoleInput not in ("e", "exit"):
@@ -157,7 +158,6 @@ while consoleInput not in ("e", "exit"):
     consoleInput = newCommand()
 
 exitCommand()   #while consoleInput in ("e", "exit")
-
 
 
 

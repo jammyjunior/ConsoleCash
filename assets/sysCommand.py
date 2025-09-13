@@ -20,6 +20,7 @@ def helpCommand():
     'exit'        : Exit the console
     'help'        : Show help
     'list'        : List all items
+    'update'      : Update an existing item
     'remove'      : Remove an item by name
     'remove -all' : Remove all items from the register
     For more infomation about ConsoleCash, go to https://github.com/jammyjunior/ConsoleCash.

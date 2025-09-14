@@ -16,7 +16,7 @@ A cash register without a traditional UI. ConsoleCash brings you a console inter
 - [Remove Command](#remove-command)
 - [Update Command](#update-command)
 
-[Contributing](#contributing-✨)
+[Contributing](#contributing)
 
 ## Before you begin
 
@@ -120,7 +120,7 @@ Price: 899
 Quantity: 2
 ```
 
-## Contributing ✨
+## Contributing
 Pull requests are welcome!
 
 This project isn't perfect, and I'm always looking for ways to improve it. If you're interested in helping, feel free to submit a pull request.

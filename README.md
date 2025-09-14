@@ -83,7 +83,7 @@ To clear the console, type `clear`.     <br/>
 
 ### Exit Command
 To exit the console, type `e` or `exit`.    <br/>
-*Note: All your data you've add will be removed.
+*Note: All your data you've added will be removed.
 
 ### Help Command
 To display all available commands, type `h` or `help`.

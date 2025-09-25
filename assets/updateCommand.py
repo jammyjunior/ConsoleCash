@@ -14,14 +14,11 @@ def updateCommand():
     return
 
 def updateItemValues(itemNameInput):
-    itemUpdateValues = addCommand.addItemValues()
-    if itemUpdateValues is None:   # If validation failed, stop here
+    itemPriceInput, itemQuantityInput = addCommand.addItemValuesCheck()
+    if itemPriceInput or itemQuantityInput is None:   # If validation failed, stop here
         return
-    
-    itemName = itemNameInput
-    itemPrice, itemQuantity = itemUpdateValues
 
-    addCommand.addItem(itemName, itemPrice, itemQuantity)
+    addCommand.addItem(itemNameInput, itemPriceInput, itemQuantityInput)
     print("Updated", itemNameInput)
 
 

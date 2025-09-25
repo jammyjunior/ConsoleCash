@@ -4,7 +4,7 @@ def addItem(itemName, itemPrice, itemQuantity):
     itemTotal = itemPrice*itemQuantity  #Save the total per item
     itemData.itemDict.update({itemName: [itemPrice, itemQuantity, itemTotal]})
 
-def addItemValues():
+def addItemValuesCheck():   #This one uses for simple add and update command
     itemPriceInput = input("Price: ")               #itemPriceInput
     try:
         itemPriceInput = float(itemPriceInput)
@@ -23,9 +23,7 @@ def addItemValues():
         print("Nothing was changed.")
         return
     
-    itemPrice = float(itemPriceInput)
-    itemQuantity = int(itemQuantityInput)
-    return itemPrice, itemQuantity
+    return itemPriceInput, itemQuantityInput
 
 def addCommand():
     itemNameInput = input("Item name: ").strip()    #itemNameInput
@@ -41,13 +39,34 @@ def addCommand():
             print("Nothing was changed.")
             return
 
-    itemName = itemNameInput
-    itemValues = addItemValues()
-    if itemValues is None:   # If validation failed, stop here
+    itemPriceInput, itemQuantityInput = addCommand.addItemValuesCheck()
+    if itemPriceInput or itemQuantityInput is None:   # If validation failed, stop here
         return
-    itemPrice, itemQuantity = itemValues
     #Add new item to itemDict
-    addItem(itemName, itemPrice, itemQuantity)
+    addItem(itemNameInput, itemPriceInput, itemQuantityInput)
     print("Added", itemNameInput)
     return
+
+def addCommandAdvanced(consoleInput):
+    lenConsoleInput = len(consoleInput)
+    if lenConsoleInput >= 4:
+        try:
+            itemPriceInput = float(consoleInput[-2])
+            itemQuantityInput = int(consoleInput[-1])
+        except ValueError:
+            print("Data type error!")
+            print("Nothing was changed.")
+            return
+        
+        itemNameInput = " ".join(consoleInput[1:-2])
+
+        addItem(itemNameInput, itemPriceInput, itemQuantityInput)
+        print(type(itemNameInput))
+        print(type(itemPriceInput))
+        print(type(itemQuantityInput))
+        print("Added", itemNameInput)
+        return
+
+    else:
+        print("Unknown Command!")
 

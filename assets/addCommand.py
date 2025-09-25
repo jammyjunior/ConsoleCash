@@ -27,6 +27,11 @@ def addItemValuesCheck():   #This one uses for simple add and update command
 
 def addCommand():
     itemNameInput = input("Item name: ").strip()    #itemNameInput
+    if itemNameInput in ("-a", "-all"):     #Invalid name: The name is in removeCommand
+        print("Invalid name !!!")
+        print("Please use other name instead.")
+        return
+    
     if itemNameInput in itemData.itemDict:
         itemUpdateAuth = input("Item does exist. Do you want to update them? (Y/n) ").lower().strip() 
         if itemUpdateAuth in ("y", "yes"):
@@ -43,7 +48,7 @@ def addCommand():
     if itemValues is None:
         return
     itemPriceInput, itemQuantityInput = itemValues
-    
+
     #Add new item to itemDict
     addItem(itemNameInput, itemPriceInput, itemQuantityInput)
     print("Added", itemNameInput)
@@ -52,6 +57,12 @@ def addCommand():
 def addCommandAdvanced(consoleInput):
     lenConsoleInput = len(consoleInput)
     if lenConsoleInput >= 4:
+        itemNameInput = " ".join(consoleInput[1:-2])
+        if itemNameInput in ("-a", "-all"):     #Invalid name: The name is in removeCommand
+            print("Invalid name !!!")
+            print("Please use other name instead.")
+            return
+        
         try:
             itemPriceInput = float(consoleInput[-2])
             itemQuantityInput = int(consoleInput[-1])
@@ -60,8 +71,6 @@ def addCommandAdvanced(consoleInput):
             print("Nothing was changed.")
             return
         
-        itemNameInput = " ".join(consoleInput[1:-2])
-
         addItem(itemNameInput, itemPriceInput, itemQuantityInput)
         print("Added", itemNameInput)
         return

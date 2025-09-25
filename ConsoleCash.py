@@ -52,15 +52,18 @@ while not consoleInput or consoleInput[0] not in ("e", "exit"):
             else:
                 print("Unknown Command!")
 
-        elif len(consoleInput) > 1:
+        elif len(consoleInput) > 1: #This one is for advanced
             if consoleInput[0] in ("a", "add"):
                 addCommand.addCommandAdvanced(consoleInput)
             elif consoleInput[0] in ("u", "update"):
                 updateCommand.updateCommandAdvanced(consoleInput) 
             elif consoleInput[0] in ("r", "remove"):
-                removeCommand.removeCommand()
+                removeCommand.removeCommandAdvanced(consoleInput)
             else:
                 print("Unknown Command!")
+
+        else:
+            print("Unknown Error!")
     
     consoleInput = newCommand()
 

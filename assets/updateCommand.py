@@ -24,13 +24,7 @@ def updateItemValues(itemNameInput):
 
 def updateCommandAdvanced(consoleInput):
     lenConsoleInput = len(consoleInput)
-    try:
-        itemNameInput = " ".join(consoleInput[1:-2])
-    except:
-        print(f"Item not found!" )
-        print("Please ensure your input is in the correct format, then try again. Type 'h' for help.")
-        print("Nothing was changed.")
-        return
+    itemNameInput = " ".join(consoleInput[1:-2])
     
     if lenConsoleInput >= 2 and itemNameInput in itemData.itemDict:
         try:
@@ -46,7 +40,7 @@ def updateCommandAdvanced(consoleInput):
         return
 
     else:
-        print(f"Can not find the {itemNameInput}." )
+        print("Invalid input.")
         print("Please ensure your input is in the correct format, then try again. Type 'h' for help.")
         print("Nothing was changed.")
 

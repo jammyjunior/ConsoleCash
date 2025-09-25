@@ -63,6 +63,18 @@ def addCommandAdvanced(consoleInput):
             print("Please use other name instead.")
             return
         
+        elif itemNameInput in itemData.itemDict:
+            itemUpdateAuth = input("Item does exist. Do you want to update them? (Y/n) ").lower().strip() 
+            if itemUpdateAuth in ("y", "yes"):
+                pass
+            elif itemUpdateAuth in ("n", "no"):
+                print("Nothing was changed.")
+                return
+            else:
+                print("Authentication failed!")
+                print("Nothing was changed.")
+                return
+
         try:
             itemPriceInput = float(consoleInput[-2])
             itemQuantityInput = int(consoleInput[-1])

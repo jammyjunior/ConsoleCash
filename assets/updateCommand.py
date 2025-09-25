@@ -14,15 +14,44 @@ def updateCommand():
     return
 
 def updateItemValues(itemNameInput):
-    itemPriceInput, itemQuantityInput = addCommand.addItemValuesCheck()
-    if itemPriceInput or itemQuantityInput is None:   # If validation failed, stop here
+    itemValues = addCommand.addItemValuesCheck()
+    if itemValues is None:   # If validation failed, stop here
         return
+    itemPriceInput, itemQuantityInput = itemValues
 
     addCommand.addItem(itemNameInput, itemPriceInput, itemQuantityInput)
     print("Updated", itemNameInput)
 
+def updateCommandAdvanced(consoleInput):
+    lenConsoleInput = len(consoleInput)
+    try:
+        itemNameInput = " ".join(consoleInput[1:-2])
+    except:
+        print(f"Item not found!" )
+        print("Please ensure your input is in the correct format, then try again. Type 'h' for help.")
+        print("Nothing was changed.")
+        return
+    
+    if lenConsoleInput >= 2 and itemNameInput in itemData.itemDict:
+        try:
+            itemPriceInput = float(consoleInput[-2])
+            itemQuantityInput = int(consoleInput[-1])
+        except ValueError:
+            print("Data type error!")
+            print("Nothing was changed.")
+            return
+
+        addCommand.addItem(itemNameInput, itemPriceInput, itemQuantityInput)
+        print("Updated", itemNameInput)
+        return
+
+    else:
+        print(f"Can not find the {itemNameInput}." )
+        print("Please ensure your input is in the correct format, then try again. Type 'h' for help.")
+        print("Nothing was changed.")
 
 
 
-# Update command mostly uses the addCommand scripts
+
+# Simple update command mostly uses the addCommand scripts
 

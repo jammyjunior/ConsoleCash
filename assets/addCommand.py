@@ -39,9 +39,11 @@ def addCommand():
             print("Nothing was changed.")
             return
 
-    itemPriceInput, itemQuantityInput = addCommand.addItemValuesCheck()
-    if itemPriceInput or itemQuantityInput is None:   # If validation failed, stop here
+    itemValues = addItemValuesCheck()
+    if itemValues is None:
         return
+    itemPriceInput, itemQuantityInput = itemValues
+    
     #Add new item to itemDict
     addItem(itemNameInput, itemPriceInput, itemQuantityInput)
     print("Added", itemNameInput)
@@ -61,12 +63,11 @@ def addCommandAdvanced(consoleInput):
         itemNameInput = " ".join(consoleInput[1:-2])
 
         addItem(itemNameInput, itemPriceInput, itemQuantityInput)
-        print(type(itemNameInput))
-        print(type(itemPriceInput))
-        print(type(itemQuantityInput))
         print("Added", itemNameInput)
         return
 
     else:
-        print("Unknown Command!")
+        print("Invalid input.")
+        print("Please ensure your input is in the correct format, then try again. Type 'h' for help.")
+        print("Nothing was changed.")
 

@@ -56,9 +56,9 @@ while not consoleInput or consoleInput[0] not in ("e", "exit"):
             if consoleInput[0] in ("a", "add"):
                 addCommand.addCommandAdvanced(consoleInput)
             elif consoleInput[0] in ("u", "update"):
-                print("hello") 
+                updateCommand.updateCommandAdvanced(consoleInput) 
             elif consoleInput[0] in ("r", "remove"):
-                removeCommand.removeAllCommand()
+                removeCommand.removeCommand()
             else:
                 print("Unknown Command!")
     

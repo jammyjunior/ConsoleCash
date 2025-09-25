@@ -1,21 +1,22 @@
 from assets import itemData
 
 def removeCommand():
-    removeItem = input("Item name to remove: ")
-    if removeItem in itemData.itemDict:
-        itemData.itemDict.pop(removeItem)
-        print("Removed", removeItem)
+    itemNameInput = input("Item name to remove: ")
+    if itemNameInput in itemData.itemDict:
+        itemData.itemDict.pop(itemNameInput)
+        print(f"Removed {itemNameInput}")
 
     else:
-        print(removeItem, "item not found! Nothing was changed.")
+        print(f"{itemNameInput} item not found! Nothing was changed.")
 
 
 def removeCommandAdvanced(consoleInput):
     lenConsoleInput = len(consoleInput)
-    itemNameInput = " ".join(consoleInput[1:-2])
+    itemNameInput = " ".join(consoleInput[1:])
 
     if itemNameInput in itemData.itemDict:
         itemData.itemDict.pop(itemNameInput)
+        print(f"Removed {itemNameInput}")
 
     elif itemNameInput in ("-a", "-all"):
         removeAllAuth = input("Are you sure? All your data will be wiped out. (Y/n)").lower().strip()

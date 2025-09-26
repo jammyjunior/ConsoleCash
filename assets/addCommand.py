@@ -88,6 +88,6 @@ def addCommandAdvanced(consoleInput):
 
     else:
         print("Invalid input.")
-        print("Please ensure your input is in the correct format, then try again. Type 'h' for help.")
+        print("Please ensure your input is in the correct format, then try again. Type 'help' for help.")
         print("Nothing was changed.")
 

@@ -31,4 +31,4 @@ def removeCommandAdvanced(consoleInput):
 
     else:
         print("Item not found!")
-        print("Please ensure your input is in the correct format, then try again. Type 'h' for help.")
+        print("Please ensure your input is in the correct format, then try again. Type 'help' for help.")

@@ -40,7 +40,7 @@ def updateCommandAdvanced(consoleInput):
 
     else:
         print("Invalid input.")
-        print("Please ensure your input is in the correct format, then try again. Type 'h' for help.")
+        print("Please ensure your input is in the correct format, then try again. Type 'list' to list all exist item, 'help' for help.")
         print("Nothing was changed.")
 
 

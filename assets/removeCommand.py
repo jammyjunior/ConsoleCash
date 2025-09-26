@@ -11,7 +11,6 @@ def removeCommand():
 
 
 def removeCommandAdvanced(consoleInput):
-    lenConsoleInput = len(consoleInput)
     itemNameInput = " ".join(consoleInput[1:])
 
     if itemNameInput in itemData.itemDict:

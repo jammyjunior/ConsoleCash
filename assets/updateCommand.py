@@ -23,10 +23,9 @@ def updateItemValues(itemNameInput):
     print("Updated", itemNameInput)
 
 def updateCommandAdvanced(consoleInput):
-    lenConsoleInput = len(consoleInput)
     itemNameInput = " ".join(consoleInput[1:-2])
     
-    if lenConsoleInput >= 2 and itemNameInput in itemData.itemDict:
+    if len(consoleInput) >= 4 and itemNameInput in itemData.itemDict:
         try:
             itemPriceInput = float(consoleInput[-2])
             itemQuantityInput = int(consoleInput[-1])

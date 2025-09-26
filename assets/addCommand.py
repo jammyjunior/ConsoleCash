@@ -55,8 +55,7 @@ def addCommand():
     return
 
 def addCommandAdvanced(consoleInput):
-    lenConsoleInput = len(consoleInput)
-    if lenConsoleInput >= 4:
+    if len(consoleInput) >= 4:
         itemNameInput = " ".join(consoleInput[1:-2])
         if itemNameInput in ("-a", "-all"):     #Invalid name: The name is in removeCommand
             print("Invalid name !!!")

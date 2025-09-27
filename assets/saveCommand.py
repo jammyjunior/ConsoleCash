@@ -1,7 +1,7 @@
 import os
 from assets import calculateCommand
 
-def saveFile (saveFileName):
+def saveFile(saveFileName):
     try:
         with open(saveFileName, "w") as sf:
             sf.write(calculateCommand.calculateCommand())

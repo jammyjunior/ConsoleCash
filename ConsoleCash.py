@@ -9,7 +9,7 @@ from assets import sessionCommand
 
 
 def newCommand():
-    return input("\033[1;32;40mconsole@consolecash:~$ \033[0m").strip().split()
+    return input("\033[1;32;40mconsole@consolecash:~\033[0m$ ").strip().split()
 
 
 print("""
@@ -41,7 +41,7 @@ while not consoleInput or consoleInput[0] not in ("e", "exit"):
             elif inputCommand in ("clear", "cls"):
                 sysCommand.clearCommand()
 
-            elif inputCommand in ("c", "calculate"):
+            elif inputCommand in ("c", "calculate", "cal"):
                 calculateCommand.calculateCommand()
 
             elif inputCommand in ("l", "list", "ls"):
@@ -74,6 +74,9 @@ while not consoleInput or consoleInput[0] not in ("e", "exit"):
 
             elif inputCommand in ("s", "save"):
                 saveCommand.saveCommandAdvanced(consoleInput)
+
+            elif inputCommand == "session":
+                sessionCommand.sessionNavigator(consoleInput)
 
             else:
                 print("Unknown Command!")

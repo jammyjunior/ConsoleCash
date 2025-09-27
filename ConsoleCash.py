@@ -4,6 +4,8 @@ from assets import listCommand
 from assets import updateCommand
 from assets import removeCommand
 from assets import sysCommand
+from assets import saveCommand
+from assets import sessionCommand
 
 
 def newCommand():
@@ -27,45 +29,59 @@ while not consoleInput or consoleInput[0] not in ("e", "exit"):
         pass
 
     else:
+        inputCommand = consoleInput[0]
+
         if len(consoleInput) == 1:
-            if consoleInput[0] in ("a", "add"):
+            if inputCommand in ("a", "add"):
                 addCommand.addCommand()
 
-            elif consoleInput[0] in ("h", "help"):
+            elif inputCommand in ("h", "help"):
                 sysCommand.helpCommand()
 
-            elif consoleInput[0] in ("clear", "cls"):
+            elif inputCommand in ("clear", "cls"):
                 sysCommand.clearCommand()
 
-            elif consoleInput[0] in ("c", "calculate"):
+            elif inputCommand in ("c", "calculate"):
                 calculateCommand.calculateCommand()
 
-            elif consoleInput[0] in ("l", "list", "ls"):
+            elif inputCommand in ("l", "list", "ls"):
                 listCommand.listCommand()
 
-            elif consoleInput[0] in ("u", "update"):
+            elif inputCommand in ("u", "update"):
                 updateCommand.updateCommand()
 
-            elif consoleInput[0] in ("r", "remove"):
+            elif inputCommand in ("r", "remove"):
                 removeCommand.removeCommand()
+
+            elif inputCommand in ("s", "save"):
+                saveCommand.saveCommand()
+
+            elif inputCommand == "session":
+                sessionCommand.sessionIntro()
 
             else:
                 print("Unknown Command!")
 
         elif len(consoleInput) > 1: #This one is for advanced
-            if consoleInput[0] in ("a", "add"):
+            if inputCommand in ("a", "add"):
                 addCommand.addCommandAdvanced(consoleInput)
-            elif consoleInput[0] in ("u", "update"):
+
+            elif inputCommand in ("u", "update"):
                 updateCommand.updateCommandAdvanced(consoleInput) 
-            elif consoleInput[0] in ("r", "remove"):
+
+            elif inputCommand in ("r", "remove"):
                 removeCommand.removeCommandAdvanced(consoleInput)
+
+            elif inputCommand in ("s", "save"):
+                saveCommand.saveCommandAdvanced(consoleInput)
+
             else:
                 print("Unknown Command!")
 
         else:
             print("Unknown Error!")
     
-    consoleInput = newCommand()
+    consoleInput = newCommand()     #Return to get new command
 
 sysCommand.exitCommand()   #while consoleInput in ("e", "exit")
 

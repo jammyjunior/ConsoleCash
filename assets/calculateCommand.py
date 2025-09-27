@@ -1,17 +1,18 @@
 from assets import itemData
 
 def calculateCommand():
-    print("Items in register:\n")
-    print("{:<35} {:<10} {:<10} {:<10}".format("Name", "Price", "Quantity", "Amount"))
-    print("-" * 65)
+    CalculatedOutput = []
+    CalculatedOutput.append("Items in register:\n")
+    CalculatedOutput.append("{:<35} {:<10} {:<10} {:<10}".format("Name", "Price", "Quantity", "Amount"))
+    CalculatedOutput.append("-" * 65)
     
     for itemName, (itemPrice, itemQuantity, itemTotal) in itemData.itemDict.items():
-        print("{:<35} {:<10.2f} {:<10} {:<10}".format(itemName, itemPrice, itemQuantity, itemTotal))
+        CalculatedOutput.append("{:<35} {:<10.2f} {:<10} {:<10}".format(itemName, itemPrice, itemQuantity, itemTotal))
 
+    itemTotalAll = sum(itemTotal for _, (_, _, itemTotal) in itemData.itemDict.items())
+    CalculatedOutput.append(f"\nTotal: {itemTotalAll:.2f} $")
+
+    print( "\n".join(CalculatedOutput))
     print()
-    itemTotalAll = 0
-    for itemName, (itemPrice, itemQuantity, itemTotal) in itemData.itemDict.items():
-        itemTotalAll+=itemTotal
 
-    print("Total: {:.2f} $".format(itemTotalAll))
-    return
+    return "\n".join(CalculatedOutput)

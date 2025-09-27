@@ -6,11 +6,14 @@ def listCommand():
         print("Type 'add' to add a new item.")
         return
     
-    print("Items in register:\n")
-    print("{:<35} {:<10} {:<10}".format("Name", "Price", "Quantity"))
-    print("-" * 55)
+    listOutput = []
+    listOutput.append("Items in register:\n")
+    listOutput.append("{:<35} {:<10} {:<10}".format("Name", "Price", "Quantity"))
+    listOutput.append("-" * 65)
     
-    for itemName, (itemPrice, itemQuantity, itemTotal) in itemData.itemDict.items():
-        print("{:<35} {:<10.2f} {:<10}".format(itemName, itemPrice, itemQuantity))
+    for itemName, (itemPrice, itemQuantity, _) in itemData.itemDict.items():
+        listOutput.append("{:<35} {:<10.2f} {:<10}".format(itemName, itemPrice, itemQuantity))
+
+    print( "\n".join(listOutput))
     print()
     return

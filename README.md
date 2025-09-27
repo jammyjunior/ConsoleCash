@@ -152,7 +152,7 @@ Path to your file: /path/to/your/file/mybill.txt
 With `mybill` is the file name, ConsoleCash will save the bill to mybill.txt and tell you the path to the file.
 
 # Advanced ConsoleCash
-As I promise, ConsoleCash is very powerful. Let's take a look for some advanced command.
+As I promise, ConsoleCash is very powerful. Let's take a look at some advanced commands.
 
 ## Add Command
 You can type every values of the item to the console to add it. For example:

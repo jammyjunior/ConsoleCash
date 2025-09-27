@@ -31,7 +31,7 @@ def sessionNavigator(consoleInput):
             deleteSession(sessionDir)
 
         elif sessionCommand in ("h", "help"):
-            print()
+            sessionIntro()
 
         elif sessionCommand in ("l", "ls", "list"):
             listSession(sessionDir)
